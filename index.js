@@ -13,5 +13,10 @@ const CLIoptions = program.opts();
 
 const suma = +CLIoptions.a + +CLIoptions.b;
 
+if (Number.isNaN(+CLIoptions.a) || Number.isNaN(+CLIoptions.b)) {
+  debug(chalk.yellow("a and b must be Numbers!. Program ended"));
+  process.exit(1);
+}
+
 debug(chalk.red("Results:"));
 debug(chalk.green(`${CLIoptions.a} + ${CLIoptions.b} = ${suma}`));
